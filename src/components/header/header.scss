@@ -1,0 +1,93 @@
+@import '../../App.scss';
+
+header {
+    background-color: $cyan;
+    padding: 15px 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo-top {
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+
+
+    .form-search {
+        display: none;
+
+        @include md {
+            display: flex;
+            align-items: center;
+            margin-right: 50px;
+        }
+
+        #search {
+            background: none;
+            border: 1px solid $white;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 5px;
+            color: $white;
+            width: 175px;
+
+            &::placeholder {
+                color: rgb(255, 255, 255);
+            }
+        }
+
+        .btn-search {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;            
+
+            img {
+                width: 23px;
+                transition: transform 200ms ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .btn-ico-header {
+        margin-right: 10px;
+        img {
+            width: 25px;
+            transition: transform 200ms ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .btn-user {        
+        img {
+            width: 30px;
+            border-radius: 50%;
+            border: 1px solid white;
+            padding: 1px;
+            object-fit: cover;
+            transition: transform 200ms ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

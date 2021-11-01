@@ -1,0 +1,14 @@
+@import '../../App.scss';
+
+
+.wrapper-feed {
+    min-height: calc(100vh - 63px);
+    background: #fafafa;
+    padding: 25px 0;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

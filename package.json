@@ -1,11 +1,17 @@
 {
-  "name": "create-react-app",
+  "name": "frontend-youpics",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-sass": "^4.14.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-scripts": "^4.0.3"
+    "react-scripts": "^4.0.3",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
+    "sass-loader": "^12.3.0",
+    "timeago.js": "^4.0.2",
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "dev": "BROWSER=none react-scripts start",

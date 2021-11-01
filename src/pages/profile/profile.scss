@@ -1,0 +1,91 @@
+@import '../../App.scss';
+
+
+.wrapper-feed {
+    min-height: calc(100vh - 63px);
+    background: #fafafa;
+    padding: 25px 0;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .profile-header {
+            display: flex;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            margin-bottom: 15px;
+
+            @include sm {
+                max-width: 475px;
+            }
+
+            @include md {
+                max-width: 550px;
+            }
+            
+
+            .profile-bigpic {
+
+                width: 75px;
+                height: 75px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 20px;
+
+                @include sm {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                @include md {
+                    width: 125px;
+                    height: 125px;
+                }
+            }
+
+            .profile-infos {
+                font-size: 12px;
+
+                @include sm {
+                    font-size: 14px;
+                }
+                h2 {
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    margin-bottom: 10px;
+
+                    @include sm {
+                        font-size: 20px;
+                    }
+                }
+
+                .profile-numbers {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    margin-top: 10px;
+
+                    @include sm {
+                        flex-direction: row;
+                        align-items: center;
+                    }
+
+                    span {
+                        margin-bottom: 3px;
+
+                        @include sm {
+                            margin: 0 15px 0 0;
+                        }
+                    }
+                }
+
+                h3 {
+                    margin: 10px 0 5px;
+                }
+            }
+        }
+    }
+}

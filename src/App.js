@@ -1,56 +1,28 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import './App.css';
+import "./App.scss";
+import Feed from "./pages/feed/Feed";
+import Profile from "./pages/profile/Profile";
+import { Switch,  Route, Redirect } from "react-router-dom";
+import Login from "./pages/login/Login";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
-function App() {
-  const [date, setDate] = useState(null);
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
-  return (
-    <main>
-      <h1>Create React App + Go API</h1>
-      <h2>
-        Deployed with{' '}
-        <a
-          href="https://vercel.com/docs"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Vercel
-        </a>
-        !
-      </h2>
-      <p>
-        <a
-          href="https://github.com/vercel/vercel/tree/main/examples/create-react-app"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          This project
-        </a>{' '}
-        was bootstrapped with{' '}
-        <a href="https://facebook.github.io/create-react-app/">
-          Create React App
-        </a>{' '}
-        and contains three directories, <code>/public</code> for static assets,{' '}
-        <code>/src</code> for components and content, and <code>/api</code>{' '}
-        which contains a serverless <a href="https://golang.org/">Go</a>{' '}
-        function. See{' '}
-        <a href="/api/date">
-          <code>api/date</code> for the Date API with Go
-        </a>
-        .
-      </p>
-      <br />
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
-    </main>
+function App() {  
+  const {user} = useContext(AuthContext);
+
+  return (    
+      <div className="App">       
+        <Switch> 
+          <Route exact path="/">
+            {user ? <Feed user={user} /> : <Login/>}
+          </Route>
+          <Route path="/profile/:username">
+            {user ? <Profile user={user}/> : <Login/>}
+          </Route>
+          <Route path="/login">
+            {user ? <Redirect to="/"/> :<Login/>}
+          </Route>
+        </Switch>
+      </div>    
   );
 }
 

@@ -1,0 +1,64 @@
+@import '../../App.scss';
+
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: $cyan;
+
+    h1 {
+        font-family: 'Dancing Script', cursive;
+        color: white;
+        text-decoration: none;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 35px;
+    }
+
+    #form-login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        input {
+            padding: 7px 5px;
+            width: 275px;
+            margin-bottom: 10px;
+            border: 0;
+        }
+
+        .login-error {
+            color: white;
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 7px 15px;
+            background: $cyan;
+            border: 2px solid white;
+            color: $white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+
+    .dica-senha {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        font-size: 12px;
+        color: white;
+
+        span {
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+}

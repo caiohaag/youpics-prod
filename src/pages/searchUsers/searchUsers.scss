@@ -1,0 +1,40 @@
+@import '../../App.scss';
+
+.wrapper-search-users {
+    min-height: calc(100vh - 63px);
+    background: #fafafa;
+    padding: 25px 0;
+
+    .titulo-busca {
+        text-align: center;
+        color: $cyan;
+        margin-bottom: 25px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        .user-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+
+            .user-pic {
+                width: 125px;
+                height: 125px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+        }
+    }
+}

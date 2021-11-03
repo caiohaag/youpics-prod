@@ -2,22 +2,26 @@ import './header.scss'
 import Home from '../../img/home.svg';
 import Exit from '../../img/exit.svg';
 import Search from '../../img/search.svg';
-import {Link} from 'react-router-dom';
-import { useContext } from 'react';
+import {Link, useHistory} from 'react-router-dom';
+import { useContext, useRef } from 'react';
 import { AuthContext } from "../../context/AuthContext";
 
 function Header(props) {  
     const {dispatch} = useContext(AuthContext);
+    const searchText = useRef();
+    let history = useHistory();
 
     const handleSearch = (e) => {
-        e.preventDefault();
+        e.preventDefault();        
+        history.push(`/search/${searchText.current.value}`);
+        
     }
 
     const handleLogoff = (e) => {
         e.preventDefault();        
         dispatch({ type: "LOGIN_SUCCESS", payload: null});
         localStorage.removeItem("userlogin");    
-    }
+    }    
 
     return ( 
         <header className="topbar">
@@ -29,7 +33,7 @@ function Header(props) {
                 </h1>
                 <div className="header-icons">
                     <form action="#" className="form-search" onSubmit={handleSearch}>
-                        <input type="text" name="search" id="search" placeholder="Pesquisar" />
+                        <input type="text" name="search" id="search" ref={searchText} required placeholder="Pesquisar usuários" />
                         <button type="submit" className="btn-search">
                             <img src={Search} alt="Pesquisar" />
                         </button>

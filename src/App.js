@@ -5,6 +5,7 @@ import { Switch,  Route, Redirect } from "react-router-dom";
 import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import SearchUsers from "./pages/searchUsers/SearchUsers";
 
 function App() {  
   const {user} = useContext(AuthContext);
@@ -19,7 +20,10 @@ function App() {
             {user ? <Profile user={user}/> : <Login/>}
           </Route>
           <Route path="/login">
-            {user ? <Redirect to="/"/> :<Login/>}
+            {user ? <Redirect to="/"/> : <Login/>}
+          </Route>
+          <Route path="/search/:search">
+            {user ? <SearchUsers user={user}/> : <Login/>}
           </Route>
         </Switch>
       </div>    

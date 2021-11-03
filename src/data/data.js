@@ -3,6 +3,9 @@ export const Users = [
     {id: 2, username: 'gimli', password: '12345', city: 'Great Hall/Moria', following: 70, followers: 250, greet: 'Ninguém confia em elfos!'},
     {id: 3, username: 'eowyn', password: '12345', city: 'Edoras/Rohan', following: 300, followers: 175, greet: 'Rohan responderá o chamado!'},
     {id: 4, username: 'legolas', password: '12345', city: 'Tree/Lothlorien', following: 10, followers: 1500, greet: 'Oi.'},
+    {id: 5, username: 'arwen', password: '12345', city: 'Rivendell', following: 50, followers: 2500, greet: 'Estrela vespertina'},
+    {id: 6, username: 'elrond', password: '12345', city: 'Rivendell', following: 5, followers: 500, greet: 'ISILDURRRRRRRR'},
+    {id: 7, username: 'boromir', password: '12345', city: 'Minas Tirith/Gondor', following: 100, followers: 750, greet: 'One Does Not Simply Walk Into Mordor...'},
 ]
 
 export const Posts = [

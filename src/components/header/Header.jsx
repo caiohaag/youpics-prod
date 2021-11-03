@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { AuthContext } from "../../context/AuthContext";
 
 function Header(props) {  
-    const {user, dispatch} = useContext(AuthContext);
+    const {dispatch} = useContext(AuthContext);
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -15,7 +15,8 @@ function Header(props) {
 
     const handleLogoff = (e) => {
         e.preventDefault();        
-        dispatch({ type: "LOGIN_SUCCESS", payload: null})           
+        dispatch({ type: "LOGIN_SUCCESS", payload: null});
+        localStorage.removeItem("userlogin");    
     }
 
     return ( 

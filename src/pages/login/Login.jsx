@@ -6,7 +6,7 @@ import './login.scss'
 function Login() {
     const loginUser = useRef();
     const loginPass = useRef();
-    const {user, error, dispatch} = useContext(AuthContext);
+    const {error, dispatch} = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,7 +15,8 @@ function Login() {
         } else if (!Users.some(user => {return user.password === loginPass.current.value})) {
             dispatch({ type: "LOGIN_FAILURE", payload: 'Senha Incorreta'})
         } else {
-            dispatch({ type: "LOGIN_SUCCESS", payload: loginUser.current.value})
+            dispatch({ type: "LOGIN_SUCCESS", payload: loginUser.current.value});
+            localStorage.setItem("userlogin",loginUser.current.value);
         }        
     }
 

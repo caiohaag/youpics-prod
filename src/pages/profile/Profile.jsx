@@ -3,12 +3,9 @@ import Header from "../../components/header/Header";
 import CardPost from '../../components/cardpost/CardPost';
 import {Users, Posts} from '../../data/data.js';
 import { useParams } from 'react-router';
-import { useRef, useState } from 'react';
 
 function Feed(props) {
     const {username} = useParams();
-    const newImg = useRef();
-    const newText = useRef();
     const currentUser = Users.filter(user => user.username === username);    
     const profilePosts = Posts.filter( post => post.userId === currentUser[0].id);
     const postCount = profilePosts.length;   

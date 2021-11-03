@@ -44,6 +44,7 @@ function CardPost(props) {
         className="card-post-img"
         onDoubleClick={HandleLike}
       />
+      <img src={HeartFilled} alt="Like" className={isLiked ? "like-anim like-anim-on" : "like-anim"} />
       <div className="post-infos">
         <div className="card-post-actions">
             <img src={isLiked ? HeartFilled : Heart} alt="Curtir" className="post-action" onClick={HandleLike} />

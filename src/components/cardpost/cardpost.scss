@@ -6,6 +6,7 @@
     max-width: 300px;
     margin-bottom: 25px;
     color: $dark;
+    position: relative;
 
     @include sm {
         max-width: 475px;       
@@ -52,6 +53,46 @@
         @include md {
             width: 550px;
             height: 550px;
+        }
+    }
+
+    .like-anim {
+        position: absolute;
+        width: 50px;
+        top: 190px;
+        left: 125px;
+        opacity: 0;
+        pointer-events: none;
+
+        @include sm {
+            width: 125px;
+            top: 241px;
+            left: 170px;
+        }
+
+        @include md {
+            top: 280px;
+            left: 212px;
+        }
+    }
+
+    .like-anim-on {
+        animation: likeanim 400ms ease-out;
+    }
+
+    @keyframes likeanim {
+        0% {
+            opacity: 0;
+            transform: scale(1);
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(2);
         }
     }
 

@@ -23,7 +23,8 @@ function CardPost(props) {
         let newComments = commentsState ? [...commentsState] : [];
         let newId = Math.random() * (9000 - 10) + 10;
         newComments.push({id: newId,userId: thisUserId, comment: newComment.current.value})
-        setCommentsState(newComments)     
+        setCommentsState(newComments)  
+        setShowComment(!showComment);    
     }
 
     const HandleLike = () => {
@@ -32,7 +33,7 @@ function CardPost(props) {
     }
 
     const handleShowComment = () => {
-      setShowComment(true);     
+      setShowComment(!showComment);     
     }
 
   return (

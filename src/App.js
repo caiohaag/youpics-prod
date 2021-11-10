@@ -14,16 +14,16 @@ function App() {
       <div className="App">       
         <Switch> 
           <Route exact path="/">
-            {user ? <Feed user={user} /> : <Login/>}
+            {user ? <Feed user={user} /> : <Redirect to="/login"/>}
           </Route>
           <Route path="/profile/:username">
-            {user ? <Profile user={user}/> : <Login/>}
+            {user ? <Profile user={user}/> : <Redirect to="/login"/>}
           </Route>
           <Route path="/login">
             {user ? <Redirect to="/"/> : <Login/>}
           </Route>
           <Route path="/search/:search">
-            {user ? <SearchUsers user={user}/> : <Login/>}
+            {user ? <SearchUsers user={user}/> : <Redirect to="/login"/>}
           </Route>
         </Switch>
       </div>    

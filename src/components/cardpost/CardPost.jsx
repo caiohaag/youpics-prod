@@ -12,6 +12,7 @@ import { AuthContext } from "../../context/AuthContext";
 function CardPost(props) {
     const [isLiked, setIsLiked] = useState(false);
     const [likes, setLikes] = useState(props.likes);
+    const [showComment, setShowComment] = useState(false);
     const {user} = useContext(AuthContext);
     const thisUserId = Users.find(thisuser => thisuser.username === user).id;
     const newComment = useRef();
@@ -28,6 +29,10 @@ function CardPost(props) {
     const HandleLike = () => {
         setIsLiked(!isLiked);
         isLiked ? setLikes(likes - 1) : setLikes(likes + 1);
+    }
+
+    const handleShowComment = () => {
+      setShowComment(true);     
     }
 
   return (
@@ -48,7 +53,7 @@ function CardPost(props) {
       <div className="post-infos">
         <div className="card-post-actions">
             <img src={isLiked ? HeartFilled : Heart} alt="Curtir" className="post-action" onClick={HandleLike} />
-            <img src={Comment} alt="Comentários" className="post-action" />
+            <img src={Comment} alt="Comentários" className="post-action" onClick={handleShowComment} />
             <img src={Share} alt="Compartilhar" className="post-action" />
         </div>
         <span className="likes-count">{likes} curtidas</span>
@@ -73,12 +78,15 @@ function CardPost(props) {
           </div>
         ) : ''}
         <span className="how-long">{format(props.createdAt)}</span>
-        <form action="#" className="form-comment" onSubmit={handleNewComment}>
-          <input type="text" className="comment-input" name="comment-input" placeholder="Comentar..." ref={newComment} required/>
-          <button type="submit">
-            Publicar
-          </button>
-        </form>
+        {showComment ? 
+          <form action="#" className="form-comment" onSubmit={handleNewComment}>
+            <input type="text" className="comment-input" name="comment-input" placeholder="Comentar..." ref={newComment} required/>
+            <button type="submit">
+              Publicar
+            </button>
+          </form>
+        : ''
+        }
       </div>
     </div>
   );

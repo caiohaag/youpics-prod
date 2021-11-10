@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import SearchUsers from "./pages/searchUsers/SearchUsers";
+import Pag404 from "./pages/pag404/Pag404";
 
 function App() {  
   const {user} = useContext(AuthContext);
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/search/:search">
             {user ? <SearchUsers user={user}/> : <Redirect to="/login"/>}
+          </Route>
+          <Route path='*' exact={true}>
+            <Pag404/>
           </Route>
         </Switch>
       </div>    
